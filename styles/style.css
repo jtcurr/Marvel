@@ -1,3 +1,11 @@
+.container {
+	margin-top: 10px;
+}
+
 .jumbotron {
+	background-color: #AAD6D0;
+	color: #F33B27;
 	text-align: center;
+	font-family: 'Bangers', cursive;
+	font-size: 70px;
 }
