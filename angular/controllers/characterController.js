@@ -1,3 +1,3 @@
-marvelApp.controller('characterController', ['$scope', function($scope) {
-	$scope.characterName = '';
+marvelApp.controller('characterController', [function($scope) {
+	this.characterName = 'gil';
 }])

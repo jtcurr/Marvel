@@ -8,9 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 	</head>
 <body ng-app="marvelApp">
-<div class="container">
+<div class="container" ng-controller="characterController as char">
 	<div class="jumbotron">
 		Marvel Character Finder
+	</div>
+	<div ng-if="char.characterName.length > 0">
+	
 	</div>
 </div>
 <script src="angular/app.js"></script>
