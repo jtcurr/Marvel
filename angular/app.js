@@ -1,1 +1,1 @@
-var angularApp = angular.module('angularApp', []);
+var marvelApp = angular.module('marvelApp', []);
