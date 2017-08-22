@@ -19,6 +19,12 @@
 			<button type="button" class="btn btn-info" ng-click="char.apiFetcher()">Search!</button>
 		</div>
 	</div>
+	<div ng-if="char.characterData === null">
+		not found
+	</div>
+	<div>
+		{{ char.characterData.name }}
+	</div>
 </div>
 <script src="js/md5.js"></script>
 <script src="angular/app.js"></script>
