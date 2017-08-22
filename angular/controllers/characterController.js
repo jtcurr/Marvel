@@ -1,5 +1,8 @@
-marvelApp.controller('characterController', [function($scope) {
+marvelApp.controller('characterController', [function() {
 	this.submitted = false;
-	this.characterName = 'gil';
-	console.log(this.characterName)
+	this.characterName = '';
+
+	this.apiFetcher = function() {
+		this.characterName = '';
+	}
 }])
