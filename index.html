@@ -23,8 +23,12 @@
 		not found
 	</div>
 	<div ng-if="char.submitted === true">
-	treats
-		{{ char.characterData.name }}
+		<div class="character-header">
+			{{ char.characterData.name }}
+		</div>
+		<div class="character-tumbnail">
+			<img ng-src="{{ char.characterData.thumbnail.path }}/portrait_xlarge.jpg" />
+		</div>
 	</div>
 </div>
 <script src="js/md5.js"></script>
