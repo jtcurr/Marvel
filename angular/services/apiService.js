@@ -1,7 +1,8 @@
 marvelApp.service('dataFetcher', function($http, $q) {
 
+	
 	this.getData = function(character) {
-		var data = {};
+		var data = undefined;
 		var date = new Date();
 		var hash = md5(date.getTime() + privAPI_KEY + pubAPI_KEY);
 		var url = "http://gateway.marvel.com/v1/public/characters?limit=100&name="+character+"&apikey="+pubAPI_KEY;
@@ -9,22 +10,23 @@ marvelApp.service('dataFetcher', function($http, $q) {
 
 		var deferred = $q.defer();
 
-		$http.get(url).then(function mySuccess(response) {
+		$http.get(url).then(function(response) {
 			console.log('SUCCESS!', response.data.data.results[0]);
-			if(response.data.data.results.length === 0) {
-				data = null;
-				deferred.resolve(data)
-			}
-			else {
-				console.log(response.data.data.results[0])
+			// if(response.data.data.results.length === 0) {
+			// 	data = null;
+			// 	deferred.resolve(data);
+			// }
+			// else {
+				//console.log(response.data.data.results[0])
 				data = response.data.data.results[0];
 				deferred.resolve(data);
-			}
-		}), function myError(error) {
+			// }
+		}, function(error) {
 			console.log('ERROR', error)
 			data = error;
-			deferred.resolve(data);
-		}
-		return $q.when(data);
+			deferred.reject(data);
+		});
+		data = deferred.promise;
+			return $q.when(data);
 	}
 })
