@@ -22,7 +22,8 @@
 	<div ng-if="char.characterData === null">
 		not found
 	</div>
-	<div>
+	<div ng-if="char.submitted === true">
+	treats
 		{{ char.characterData.name }}
 	</div>
 </div>

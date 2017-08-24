@@ -1,14 +1,19 @@
-marvelApp.controller('characterController', function(dataFetcher) {
+marvelApp.controller('characterController', function($timeout, dataFetcher) {
 	var vm = this;
 	vm.submitted = false;
 	vm.characterName = '';
-	vm.characterData = [];
+	vm.characterData = dataFetcher.data;
+	$timeout(function() {
+		console.log("11",dataFetcher)
+	}, 5000)
 
 	vm.apiFetcher = function() {
 		if(vm.characterName.length === 0) {
 			return;
 		}
-		vm.characterData = dataFetcher.getData(vm.characterName);
+		dataFetcher.getData(vm.characterName).then(function(data) {
+			vm.characterData = data;
+		});
 		vm.submitted = true;
 		vm.characterName = '';
 	}
