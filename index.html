@@ -37,14 +37,14 @@
 					<td class="bold">Description</td>
 					<td>{{ char.characterData.description }}</td>
 				</tr>
-				<tr>
-					<td class="bold">Comics</td>
-					<td ng-repeat="comic in char.collectionData">
-						///////
-					</td>
-				</tr>
 			</tbody>
 		</table>
+			<span class="bold">Comics</span>
+				<div ng-repeat="comic in char.collectionData">
+					<div class="info-body">
+						<img class="comic-image" ng-src="{{comic.images[0].path}}/portrait_xlarge.jpg"/>
+					</div>
+				</div>
 	</div>
 </div>
 <script src="js/md5.js"></script>
