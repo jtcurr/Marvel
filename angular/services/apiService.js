@@ -1,7 +1,7 @@
 marvelApp.service('dataFetcher', function($http, $q) {
+	var vm = this;
 
-	
-	this.getData = function(character) {
+	vm.getData = function(character) {
 		var data = undefined;
 		var date = new Date();
 		var hash = md5(date.getTime() + privAPI_KEY + pubAPI_KEY);
@@ -12,15 +12,9 @@ marvelApp.service('dataFetcher', function($http, $q) {
 
 		$http.get(url).then(function(response) {
 			console.log('SUCCESS!', response.data.data.results[0]);
-			// if(response.data.data.results.length === 0) {
-			// 	data = null;
-			// 	deferred.resolve(data);
-			// }
-			// else {
-				//console.log(response.data.data.results[0])
 				data = response.data.data.results[0];
+				vm.getCollection(data);
 				deferred.resolve(data);
-			// }
 		}, function(error) {
 			console.log('ERROR', error)
 			data = error;
@@ -28,5 +22,21 @@ marvelApp.service('dataFetcher', function($http, $q) {
 		});
 		data = deferred.promise;
 			return $q.when(data);
+	}
+
+	vm.getCollection = function(data) {
+		var date = new Date();
+		var hash = md5(date.getTime() + privAPI_KEY + pubAPI_KEY);
+		var collectionUrl = data.comics.collectionURI+"&apikey="+pubAPI_KEY;
+		collectionUrl += "&ts=" + date.getTime() + "&hash=" + hash;
+		$http.get(collectionUrl).then(function(response) {
+			console.log('Got collection', response);
+				// data = response.data.data.results[0];
+				// deferred.resolve(data);
+		}, function(error) {
+			console.log('ERROR', error)
+			// data = error;
+			// deferred.reject(data);
+		});
 	}
 })
