@@ -35,9 +35,11 @@ marvelApp.service('dataFetcher', function($http, $q) {
 		$http.get(collectionUrl).then(function(response) {
 			response = response.data.data.results;
 			for(var i = 0; i < response.length; i++) {
-				console.log(response[i])
 				if(response[i].description){
 					response[i].description = response[i].description.split('<')[0];
+				}
+				if(!response[i].description) {
+					response.splice(i,1);
 				}
 			}
 			deferred.resolve(response);
