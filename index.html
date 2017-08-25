@@ -13,11 +13,11 @@
 		Marvel Character Finder
 	</div>
 	<div ng-if="!char.submitted || char.characterData === undefined">
-		<div class="form-group">
+		<form class="form-group" ng-submit="char.apiFetcher()">
 			<label>Enter Marvel character name</label>
 			<input type="text" name="characterName" class="form-control" placeholder="Character name" ng-model="char.characterName">
-			<button type="button" class="btn btn-info" ng-click="char.apiFetcher()">Search!</button>
-		</div>
+			<button type="submit" class="btn btn-info">Search!</button>
+		</form>
 	</div>
 	<div ng-if="char.characterData === undefined">
 		<div class="not-found">
@@ -40,7 +40,7 @@
 				<tr>
 					<td class="bold">Comics</td>
 					<td ng-repeat="comic in char.collectionData">
-						/////////
+						///////
 					</td>
 				</tr>
 			</tbody>
