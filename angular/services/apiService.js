@@ -33,8 +33,14 @@ marvelApp.service('dataFetcher', function($http, $q) {
 		var collectionUrl = data.comics.collectionURI +"?ts=" + date.getTime() +"&apikey="+pubAPI_KEY;
 		collectionUrl += "&hash=" + hash;
 		$http.get(collectionUrl).then(function(response) {
-			console.log('Got collection', response.data.data.results);
-			deferred.resolve(response.data.data.results);
+			response = response.data.data.results;
+			for(var i = 0; i < response.length; i++) {
+				console.log(response[i])
+				if(response[i].description){
+					response[i].description = response[i].description.split('<')[0];
+				}
+			}
+			deferred.resolve(response);
 		}, function(error) {
 			console.log('ERROR', error);
 			deferred.reject(error);
