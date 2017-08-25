@@ -35,11 +35,19 @@
 .character-tumbnail {
 	width: 50%;
 	margin: 0 auto;
+	margin-bottom: 10px;
 }
 
 .character-tumbnail img{
 	display: block;
 	margin: auto;
+}
+
+.not-found {
+	text-align: center;
+	font-family: 'Bangers', cursive;
+	font-size: 60px;
+	color: red;
 }
 
 /*Color index: https://color.adobe.com/Design-2-color-theme-9895948/edit/?copy=true&base=2&rule=Custom&selected=4&name=Copy%20of%20Design%202&mode=rgb&rgbvalues=0.6666666666666666,0.8392156862745098,0.8156862745098039,0.6470588235294118,0.5725490196078431,0.47058823529411764,0.34901960784313724,0.12941176470588237,0.01568627450980392,0.7411764705882353,0.43137254901960786,0.25098039215686274,0.9529411764705882,0.23137254901960785,0.15294117647058825&swatchOrder=0,1,2,3,4*/
