@@ -40,10 +40,12 @@
 			</tbody>
 		</table>
 			<span class="bold">Comics</span>
-				<div ng-repeat="comic in char.collectionData">
-					<div class="info-body">
-						<img class="comic-image" ng-src="{{comic.images[0].path}}/portrait_xlarge.jpg"/>
+				<div class="info-body" ng-repeat="comic in char.collectionData">
+					<img class="comic-image" ng-src="{{ comic.images[0].path }}/portrait_xlarge.jpg"/>
+					<div class="comic-content">
+						{{ comic.description }}
 					</div>
+					<hr />
 				</div>
 	</div>
 </div>
