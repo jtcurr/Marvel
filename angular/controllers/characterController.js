@@ -3,14 +3,17 @@ marvelApp.controller('characterController', function($timeout, dataFetcher) {
 	vm.submitted = false;
 	vm.characterName = '';
 	vm.characterData = '';
+	vm.collectionData = [];
 
 	vm.apiFetcher = function() {
 		if(vm.characterName.length === 0) {
 			return;
 		}
 		dataFetcher.getData(vm.characterName).then(function(data) {
-			console.log(data)
 			vm.characterData = data;
+			dataFetcher.getCollection(data).then(function(collection) {
+				vm.collectionData = collection;
+			})
 		});
 		vm.submitted = true;
 		vm.characterName = '';

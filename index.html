@@ -33,21 +33,15 @@
 		</div>
 		<table class="table">
 			<tbody>
-				<tr>
+				<tr ng-if="char.characterData.description">
 					<td class="bold">Description</td>
 					<td>{{ char.characterData.description }}</td>
 				</tr>
 				<tr>
-					<td class="bold">Description</td>
-					<td>{{ char.characterData.description }}</td>
-				</tr>
-				<tr>
-					<td class="bold">Description</td>
-					<td>{{ char.characterData.description }}</td>
-				</tr>
-				<tr>
-					<td class="bold">Description</td>
-					<td>{{ char.characterData.description }}</td>
+					<td class="bold">Comics</td>
+					<td ng-repeat="comic in char.collectionData">
+						/////////
+					</td>
 				</tr>
 			</tbody>
 		</table>
