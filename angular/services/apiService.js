@@ -40,6 +40,7 @@ marvelApp.service('dataFetcher', function($http, $q) {
 				}
 				if(!response[i].description) {
 					response.splice(i,1);
+					console.log(response)
 				}
 			}
 			deferred.resolve(response);
