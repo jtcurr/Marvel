@@ -42,6 +42,7 @@ marvelApp.service('dataFetcher', function($http, $q) {
 					response.splice(i-1,2);
 				}
 			}
+			console.log(response)
 			deferred.resolve(response);
 		}, function(error) {
 			console.log('ERROR', error);
