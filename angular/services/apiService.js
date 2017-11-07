@@ -3,8 +3,6 @@ marvelApp.service('dataFetcher', function($http, $q) {
 
 	vm.getData = function(character) {
 		var data = undefined;
-		var date = new Date();
-		var hash = md5(date.getTime() + privAPI_KEY + pubAPI_KEY);
 		var url = "http://gateway.marvel.com/v1/public/characters?limit=100&name="+character+"&apikey="+pubAPI_KEY;
 		url += "&ts=" + date.getTime() + "&hash=" + hash;
 
